@@ -10,6 +10,11 @@ const ProductCard = ({ product }) => {
     ev.target.src = DefaultImage;
   };
 
+  const handleWhatsAppClick = () => {
+    const message = encodeURIComponent(`Halo Bahas Koding, saya tertarik dengan produk ${product.name} seharga ${product.price}. Apakah masih tersedia?`);
+    window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
+  };
+
   return (
     <motion.div 
       whileHover={{ y: -8 }}
@@ -32,8 +37,15 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-800/50">
-        <span className="text-blue-400 font-black text-2xl">{product.price}</span>
+        <div className="flex flex-col">
+          {product.originalPrice && (
+            <span className="text-slate-500 text-xs line-through mb-1 font-medium">{product.originalPrice}</span>
+          )}
+          <span className="text-blue-400 font-black text-2xl leading-none">{product.price}</span>
+          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">Ready Stock</span>
+        </div>
         <button 
+          onClick={handleWhatsAppClick}
           className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-blue-600/20 active:bg-blue-800 transition-all cursor-pointer"
         >
           Beli Sekarang
