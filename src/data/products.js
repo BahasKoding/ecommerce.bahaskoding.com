@@ -6,6 +6,7 @@ const products = [
     originalPrice: "Rp 1.450.000",
     desc: "Keyboard Mekanik Wireless dengan Switch Gateron Brown. Pilihan terbaik untuk produktivitas.",
     image: "keychron-k2.webp",
+    isBestSeller: true,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const products = [
     originalPrice: "Rp 1.700.000",
     desc: "Mouse Gaming Wireless Superlight. Performa kelas profesional untuk gaming intens.",
     image: "gpro-x.webp",
+    isBestSeller: true,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const products = [
     originalPrice: "Rp 3.800.000",
     desc: "Monitor 27\" QHD IPS dengan HDR10. Visual tajam dan akurasi warna tinggi.",
     image: "lg-monitor.webp",
+    isBestSeller: true,
   },
   {
     id: 4,
@@ -44,6 +47,7 @@ const products = [
     originalPrice: "Rp 2.100.000",
     desc: "Arctis Nova 7 Wireless. Audio imersif dengan kenyamanan maksimal.",
     image: "arctis-nova.webp",
+    isBestSeller: true,
   },
   {
     id: 7,

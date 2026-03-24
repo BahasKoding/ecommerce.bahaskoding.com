@@ -17,22 +17,29 @@ const ProductCard = ({ product }) => {
 
   return (
     <motion.div 
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.01 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-lg hover:shadow-blue-900/10 transition-all flex flex-col h-full"
+      className="bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-lg hover:border-blue-500/30 transition-all flex flex-col h-full relative"
     >
-      <div className="overflow-hidden rounded-xl mb-4 h-48 bg-slate-800 relative group">
+      {product.isBestSeller && (
+        <div className="absolute top-6 left-6 z-20">
+          <span className="bg-blue-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest shadow-lg shadow-blue-600/50">
+            Best Seller
+          </span>
+        </div>
+      )}
+
+      <div className="overflow-hidden rounded-xl mb-4 h-48 bg-slate-800 relative">
         <img 
           src={`/src/assets/images/${product.image}`} 
           onError={addDefaultSrc} 
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
       </div>
       
       <div className="flex-grow">
-        <h3 className="text-white font-bold text-lg mb-1 group-hover:text-blue-400 transition-colors uppercase tracking-tight">{product.name}</h3>
+        <h3 className="text-white font-bold text-lg mb-1 transition-colors uppercase tracking-tight">{product.name}</h3>
         <p className="text-slate-400 text-sm mb-4 line-clamp-2 leading-relaxed">{product.desc}</p>
       </div>
 
